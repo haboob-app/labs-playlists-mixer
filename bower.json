@@ -1,0 +1,9 @@
+{
+  "name": "labs-playlists-mixer",
+  "dependencies": {
+    "bootstrap": "~v4.0.0-alpha.6",
+    "components-font-awesome": "^4.7.0",
+    "parsleyjs": "^2.6.5",
+    "zeroclipboard": "^2.3.0"
+  }
+}

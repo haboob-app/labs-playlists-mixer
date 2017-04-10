@@ -1,0 +1,60 @@
+{{title "Playlists mixer - Haboob Labs"}}
+
+{{partial 'layout/main-menu'}}
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h2 class="display-5">{{t "mixer.title"}}</h2>
+    <p class="lead">{{t "mixer.subtitle"}}</p>
+  </div>
+</div>
+{{#parsley-form id="create-form" action="create" reset=reset}}
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    {{#each model as |item index|}}
+      {{playlist-setting index=index playlists=playlists selectedPlaylist=item.playlist ratio=item.ratio remove="remove" showRemove=(gt model.length 2) }}
+    {{/each}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="row">
+      <div class="col-md-11">
+        <button {{action "add"}} class="btn btn-outline-primary btn-block text-uppercase">
+          {{t "mixer.add"}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="row">
+      <div class="col-md-11">
+        <div class="form-group">
+          {{input class="form-control" value=playlistName placeholder="Playlist Name" required="required"}}
+        </div>
+      </div>
+      <div class="col-md-11">
+        <div class="form-group">
+          <label>
+            {{input type="checkbox" checked=isPublic}} <span class="text-muted">public</span>
+          </label>
+        </div>
+      </div>
+      <div class="col-md-11 text-center">
+        <button type="submit" class="btn btn-outline-primary btn-lg btn-block text-uppercase">
+
+          {{#if loading}}
+            <div class="loader float-right"></div>
+            {{t "mixer.creating"}}
+          {{else}}
+            {{t "mixer.create"}}
+          {{/if}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{{/parsley-form}}

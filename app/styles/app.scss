@@ -1,0 +1,68 @@
+@import "custom";
+@import "fonts";
+@import "ember-cli-bootstrap-4/bootstrap";
+@import "forms";
+@import 'ember-power-select/themes/bootstrap';
+@import "ember-power-select";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 1.5rem;
+  padding-bottom: 9rem;
+}
+
+button {
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $linkColorHover !important;
+    background-color: transparent !important;
+  }
+}
+
+/* Custom page header */
+.header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  //border-bottom: .05rem solid #e5e5e5;
+
+  .active {
+    color: $linkColorHover !important;
+  }
+
+  .logo {
+    text-decoration: none;
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 3rem;
+    color: rgba(0, 0, 0, 0.5);
+    small {
+      font-size: 45%;
+      color: #999 !important;
+      font-weight: bold;
+      margin-top: -17px;
+      position: absolute;
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 7rem;
+  line-height: 2rem; /* Vertically center the text there */
+  text-align: center;
+  .create-icon {
+    font-size: 5rem;
+  }
+}
