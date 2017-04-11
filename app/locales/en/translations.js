@@ -24,11 +24,15 @@ export default {
     "subtitle": "select your sources playlists and hit create",
     "create": "create!",
     "creating": "creating...",
-    "add": "add"
+    "add": "add",
+    "public": "public",
+    "shuffle": "shuffle"
   },
 
   "playlist-setting": {
+    "playlist": "Playlist",
     "playlist-placeholder": "Select a playlist",
+    "ratio": "Ratio",
     "ratio-placeholder": "",
     "ratio-help": ""
   }

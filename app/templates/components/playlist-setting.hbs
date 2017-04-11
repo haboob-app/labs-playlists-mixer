@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="form-group">
-      <label>Playlist</label>
+      <label>{{t "playlist-setting.playlist"}}</label>
       {{input class="invisible float-right" value=selectedPlaylist required="required"}}
       {{#power-select
         required="required"
@@ -19,7 +19,7 @@
   </div>
   <div class="col-md-5">
     <div class="form-group">
-      <label>Ratio</label>
+      <label>{{t "playlist-setting.ratio"}}</label>
       {{input class="form-control" value=ratio placeholder=(t "playlist-setting.ratio-placeholder") required="required" min="1" max="5" aria-describedby="ratioHelp"}}
       <small id="ratioHelp" class="form-text text-muted">{{t "playlist-setting.ratio-help"}}</small>
     </div>
