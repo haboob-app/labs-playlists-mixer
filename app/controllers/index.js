@@ -4,7 +4,7 @@ import ENV from "labs-playlists-mixer/config/environment";
 export default Ember.Controller.extend({
 
   session: Ember.inject.service('session'),
-  rootUrl: ENV.rootURL,
+  rootUrl: ENV.routerRootURL,
 
   actions: {
 

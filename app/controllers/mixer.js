@@ -6,7 +6,7 @@ const { RSVP: { Promise } } = Ember;
 export default Ember.Controller.extend({
 
   mixer: Ember.inject.service('mixer'),
-  rootUrl: ENV.rootURL,
+  rootUrl: ENV.routerRootURL,
 
   actions: {
     add(){
