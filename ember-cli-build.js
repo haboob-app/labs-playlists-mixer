@@ -14,7 +14,7 @@ module.exports = function(defaults) {
   });
 
   if (isProductionLikeBuild) {
-    app.options.fingerprint.prepend = '/public/';
+    app.options.fingerprint.prepend = 'https://labs.haboob.co/plm/public/';
   }
 
   // Use `app.import` to add additional libraries to the generated

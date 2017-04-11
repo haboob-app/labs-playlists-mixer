@@ -74,9 +74,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.torii.providers.spotify.redirectUri = 'https://labs.haboob.co/mixer/';
-    // ENV.rootURL = '/playlists-mixer/public/';
-    // ENV.routerRootURL = '/playlists-mixer/';
+    ENV.torii.providers.spotify.redirectUri = 'https://labs.haboob.co/playlists-mixer/#/mixer/';
+    ENV.routerRootURL = '/playlists-mixer/';
+    ENV.locationType = 'hash';
   }
 
   return ENV;
