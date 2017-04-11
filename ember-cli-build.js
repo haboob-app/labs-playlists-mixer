@@ -14,7 +14,7 @@ module.exports = function(defaults) {
   });
 
   if (isProductionLikeBuild) {
-    app.options.fingerprint.prepend = 'https://labs.haboob.co/plm/public/';
+    app.options.fingerprint.prepend = 'https://labs.haboob.co/playlists-mixer/public/';
   }
 
   // Use `app.import` to add additional libraries to the generated
