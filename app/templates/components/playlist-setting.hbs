@@ -1,5 +1,15 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-1 col-sm-12 push-md-11">
+    {{#if showRemove}}
+    <div class="form-group">
+      <label class="d-block">&nbsp;</label>
+      <button {{action "remove"}} type="button" class="close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {{/if}}
+  </div>
+  <div class="col-md-6 pull-md-1">
     <div class="form-group">
       <label>{{t "playlist-setting.playlist"}}</label>
       {{input class="invisible float-right" value=selectedPlaylist required="required"}}
@@ -17,21 +27,11 @@
       {{/power-select}}
     </div>
   </div>
-  <div class="col-md-5">
+  <div class="col-md-5 pull-md-1">
     <div class="form-group">
       <label>{{t "playlist-setting.ratio"}}</label>
       {{input class="form-control" value=ratio placeholder=(t "playlist-setting.ratio-placeholder") required="required" min="1" max="5" aria-describedby="ratioHelp"}}
       <small id="ratioHelp" class="form-text text-muted">{{t "playlist-setting.ratio-help"}}</small>
     </div>
-  </div>
-  <div class="col-md-1">
-    {{#if showRemove}}
-    <div class="form-group">
-      <label class="d-block">&nbsp;</label>
-      <button {{action "remove"}} type="button" class="close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    {{/if}}
   </div>
 </div>

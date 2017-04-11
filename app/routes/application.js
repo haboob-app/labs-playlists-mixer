@@ -31,8 +31,13 @@ export default Ember.Route.extend(LoadingSliderMixin, {
       this.showMessage(message, type);
       return false;
     },
+
     accessDenied: function() {
       this.transitionTo('index');
+    },
+
+    selectLang(lang) {
+      this.set('i18n.locale', lang || 'en');
     }
   }
 });

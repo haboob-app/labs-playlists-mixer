@@ -1,6 +1,26 @@
 <div class="header clearfix">
-  <h3>
-    <a href="{{rootUrl}}" class="logo"><span class="icon-logo font-weight-bold"></span></a>
-    <small class="text-muted">labs</small>
-  </h3>
+  <nav class="navbar navbar-toggleable-md navbar-light">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h3>
+      <a href="{{rootUrl}}" class="logo">
+        <span class="icon-logo font-weight-bold"><small class="text-muted">labs</small></span>
+
+      </a>
+    </h3>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+      <ul class="navbar-nav mt-2 mt-md-0 navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" href="#" {{action "selectLang" 'en'}}>en</a>
+        </li>
+        <li class="nav-item hidden-sm-down">
+          <span class="mt-2 d-block text-muted">|</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" {{action "selectLang" 'es'}}>es</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </div>

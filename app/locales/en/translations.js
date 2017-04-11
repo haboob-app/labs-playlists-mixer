@@ -1,28 +1,15 @@
 export default {
-  // "some.translation.key": "Text for some.translation.key",
-  //
-  // "a": {
-  //   "nested": {
-  //     "key": "Text for a.nested.key"
-  //   }
-  // },
-  //
-  // "key.with.interpolation": "Text with {{anInterpolation}}"
 
-  headers: {
-    integration: "Integration"
-  },
-
-  index: {
+  "index": {
     "title": "Playlists Mixer",
     "subtitle": "create new playlists mixing spotify playlists",
-    "get-started": "Get started!"
+    "get-started": "Get started"
   },
 
-  mixer: {
+  "mixer": {
     "title": "Playlists Mixer",
-    "subtitle": "select your sources playlists and hit create",
-    "create": "create!",
+    "subtitle": "select the sources playlists and hit create",
+    "create": "create",
     "creating": "creating...",
     "add": "add",
     "public": "public",
@@ -36,4 +23,5 @@ export default {
     "ratio-placeholder": "",
     "ratio-help": ""
   }
+
 };
