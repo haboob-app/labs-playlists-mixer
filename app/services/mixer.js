@@ -23,7 +23,7 @@ export default Ember.Service.extend({
     this.set('ratios', []);
   },
 
-  createMixPlaylist(playListName, isPublic) {
+  createMixPlaylist(playListName, isPublic, shuffle) {
     let client = this.get('spotifyApi');
     let userId = this.get('session.currentUserId');
     let self = this;
@@ -33,16 +33,19 @@ export default Ember.Service.extend({
       return data.body.id;
     })
     .then(function(playListId) {
-      return self.addMixedTracks(userId, playListId);
+      return self.addMixedTracks(userId, playListId, shuffle);
     })
     .catch(function() {
       return null;
     });
   },
 
-  addMixedTracks(userId, playListId) {
+  addMixedTracks(userId, playListId, shuffle) {
     let client = this.get('spotifyApi');
-    let chunks = this.array_chunk(this.mix().map(item => item.uri), 100);
+    let mixedTracks = this.mix(shuffle).map(item => item.uri).filter(function(item) {
+      return item.indexOf("spotify:track:") === 0; //allow only spotify tracks - not spotify:local: or others
+    });
+    let chunks = this.chunk(mixedTracks, 100);
 
     let promises = [];
 
@@ -53,7 +56,7 @@ export default Ember.Service.extend({
     return Promise.all(promises);
   },
 
-  array_chunk(arr, size){
+  chunk(arr, size){
     // initialize vars
     var i,
     j = arr.length,
@@ -67,11 +70,13 @@ export default Ember.Service.extend({
     return tempArray;
   },
 
-  mix() {
+  mix(shuffle) {
+    let self = this;
     let ratios = this.get('ratios');
     let maxRatio = Math.max(...ratios);
     let normalizedRatios = ratios.map(item => Math.abs(item - maxRatio) + 1);
-    let normalizedPlaylists = this.get('playlists').map(item => item.get('songs'));
+    let normalizedPlaylists = this.get('playlists').map(item => shuffle ? self.shuffle(item.get('songs')) : item.get('songs'));
+
     let ratioIndex = 2;
     let emptyA = 0;
 
@@ -88,6 +93,23 @@ export default Ember.Service.extend({
     while (emptyA < normalizedPlaylists.length);
 
     return this.get('mergePlaylist');
+  },
+
+  shuffle(array) {
+    let m = array.length, t, i;
+
+    // While there remain elements to shuffle…
+    while (m) {
+
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+
+      // And swap it with the current element.
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+    return array;
   },
 
   getItem(array, ratio, ratioIndex) {

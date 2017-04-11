@@ -21,7 +21,8 @@ export default Ember.Route.extend({
       'loading': false,
       'playlists': this.findAllPlayLists(),
       'playlistName': 'Playlist ' + moment(new Date()).format('YYYYMMDD'),
-      'isPublic': true
+      'isPublic': true,
+      'shuffle': true
     });
 
   },

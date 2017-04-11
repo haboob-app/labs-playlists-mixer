@@ -44,7 +44,7 @@ export default Ember.Controller.extend({
       if (promises.length > 0) {
         Promise.all(promises)
         .then(function() {
-          return mixer.createMixPlaylist(self.get('playlistName'), self.get('isPublic'));
+          return mixer.createMixPlaylist(self.get('playlistName'), self.get('isPublic'), self.get('shuffle'));
         })
         .then(function() {
           self.send('showMessage', 'Well done! Your playlist has been created');
