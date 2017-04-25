@@ -1,0 +1,8 @@
+<a class="nav-link dropdown-toggle" href="#" id="langDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  {{i18n.locale}}
+</a>
+<div class="dropdown-menu" aria-labelledby="langDropDown">
+  {{#each locales as |loc|}}
+    <a class="dropdown-item" href="#" {{action "setLocale" loc}}>{{loc}}</a>
+  {{/each}}
+</div>

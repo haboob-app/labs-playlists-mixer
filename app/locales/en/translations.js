@@ -25,9 +25,9 @@ export default {
     "ratio-help": ""
   },
 
-  errors: {
-    unexpected: "Unexpected error. Please check your connection or the spotify API status.",
-    api: "Spotify sent us an error. This occasionally happens creating large lists, however, the list could be created so please check your spotify."
+  "errors": {
+    "unexpected": "Unexpected error. Please check your connection or the spotify API status.",
+    "api": "Spotify sent us an error. This occasionally happens creating large lists, however, the list could be created so please check your spotify."
   }
 
 };

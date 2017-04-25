@@ -11,14 +11,8 @@
     </h3>
     <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
       <ul class="navbar-nav mt-2 mt-md-0 navbar-right">
-        <li class="nav-item">
-          <a class="nav-link" href="#" {{action "selectLang" 'en'}}>en</a>
-        </li>
-        <li class="nav-item hidden-sm-down">
-          <span class="mt-2 d-block text-muted">|</span>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" {{action "selectLang" 'es'}}>es</a>
+        <li class="nav-item dropdown">
+          {{language-select}}
         </li>
       </ul>
     </div>

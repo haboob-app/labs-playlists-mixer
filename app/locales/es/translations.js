@@ -25,9 +25,9 @@ export default {
     "ratio-help": ""
   },
 
-  errors: {
-    unexpected: "Error inesperado. Por favor verifique su conexión o el estado del API de spotify.",
-    api: "Spotify nos envió un error. Esto ocurre ocasionalmente creando listas grandes, sin embargo, la lista pudo ser creada así que comprueba por favor tu spotify."
+  "errors": {
+    "unexpected": "Error inesperado. Por favor verifique su conexión o el estado del API de spotify.",
+    "api": "Spotify nos envió un error. Esto ocurre ocasionalmente creando listas grandes, sin embargo, la lista pudo ser creada así que comprueba por favor tu spotify."
   }
 
 };
