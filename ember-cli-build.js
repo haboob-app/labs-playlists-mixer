@@ -36,6 +36,7 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/parsleyjs/dist/parsley.js');
   app.import(app.bowerDirectory + '/parsleyjs/dist/i18n/es.js');
   app.import(app.bowerDirectory + '/parsleyjs/dist/i18n/en.js');
+  app.import(app.bowerDirectory + '/parsleyjs/dist/i18n/nl.js');
 
   return app.toTree();
 };

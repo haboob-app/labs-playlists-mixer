@@ -74,7 +74,7 @@ export default Ember.Service.extend({
     let normalizedRatios = ratios.map(item => Math.abs(item - maxRatio) + 1);
     let normalizedPlaylists = this.get('playlists').map(item => shuffle ? self.shuffle(item.get('songs')) : item.get('songs'));
 
-    let ratioIndex = 2;
+    let ratioIndex = 1;
     let emptyA = 0;
 
     do {
