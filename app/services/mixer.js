@@ -34,9 +34,6 @@ export default Ember.Service.extend({
     })
     .then(function(playListId) {
       return self.addMixedTracks(userId, playListId, shuffle);
-    })
-    .catch(function() {
-      return null;
     });
   },
 
@@ -160,8 +157,6 @@ export default Ember.Service.extend({
         })));
       }
       return d;
-    },function() {
-      return null;
     });
   },
 
@@ -179,8 +174,6 @@ export default Ember.Service.extend({
         return playlist.get('songs');
       });
 
-    }).catch(function () {
-      return playlist.get('songs');
     });
   }
 

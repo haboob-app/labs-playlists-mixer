@@ -6,10 +6,10 @@ export default Ember.Route.extend(LoadingSliderMixin, {
   notifications: Ember.inject.service('notification-messages'),
 
   afterModel: function() {
-    this.set('i18n.locale', this.calculateLocale());
+    this.set('i18n.locale', this.findLocale());
   },
 
-  calculateLocale() {
+  findLocale() {
     // whatever you do to pick a locale for the user:
     var locale =  navigator.languages && navigator.languages[0] ||
     navigator.language ||

@@ -46,11 +46,16 @@ export default Ember.Controller.extend({
         .then(function() {
           return mixer.createMixPlaylist(self.get('playlistName'), self.get('isPublic'), self.get('shuffle'));
         })
-        .then(function() {
-          self.send('showMessage', 'Well done! Your playlist has been created');
+        .then(function(msg) {
+          self.send('showMessage', self.get('i18n').t('mixer.success'));
         })
         .catch(function(error) {
-          this.send('showMessage', error.message || 'Unexpected error. Please try again', 'error');
+          let msg = self.get('i18n').t('errors.unexpected')
+          if (error && error.statusCode === 500) {
+            msg = self.get('i18n').t('errors.api')
+          }
+          console.error(error);
+          self.send('showMessage', msg , 'error');
         })
         .finally(function(){
           $btn.removeAttr('disabled');

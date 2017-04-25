@@ -13,7 +13,8 @@ export default {
     "creating": "creating...",
     "add": "add",
     "public": "public",
-    "shuffle": "shuffle"
+    "shuffle": "shuffle",
+    "success": "Well done! Your playlist has been created"
   },
 
   "playlist-setting": {
@@ -22,6 +23,11 @@ export default {
     "ratio": "Ratio",
     "ratio-placeholder": "",
     "ratio-help": ""
+  },
+
+  errors: {
+    unexpected: "Unexpected error. Please check your connection or the spotify API status.",
+    api: "Spotify sent us an error. This occasionally happens creating large lists, however, the list could be created so please check your spotify."
   }
 
 };
