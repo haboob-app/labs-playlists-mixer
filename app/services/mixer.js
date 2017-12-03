@@ -38,19 +38,35 @@ export default Ember.Service.extend({
   },
 
   addMixedTracks(userId, playListId, shuffle) {
-    let client = this.get('spotifyApi');
+    // remove local tracks
     let mixedTracks = this.mix(shuffle).map(item => item.uri).filter(function(item) {
       return item.indexOf("spotify:track:") === 0; //allow only spotify tracks - not spotify:local: or others
     });
+
+    //split by 100 tracks
     let chunks = this.chunk(mixedTracks, 100);
 
     let promises = [];
-
     for (var i = 0; i < chunks.length; i++) {
-      promises.push(client.addTracksToPlaylist(userId, playListId, chunks[i]));
+      promises.push(this.addTracksToPlaylist(userId, playListId, chunks[i]));
     }
+    //add tracks serially
+    return this.promiseSerial(promises);
+  },
 
-    return Promise.all(promises);
+  addTracksToPlaylist(userId, playListId, tracks) {
+    let client = this.get('spotifyApi');
+    return function() {
+      return client.addTracksToPlaylist(userId, playListId, tracks)
+    };
+  },
+
+  promiseSerial(funcs) {
+    return funcs.reduce(function (promise, func) {
+      return promise.then(function (result) {
+        return func().then(Array.prototype.concat.bind(result));
+      });
+    }, Promise.resolve([]));
   },
 
   chunk(arr, size){
