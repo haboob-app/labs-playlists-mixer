@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
   actions: {
     add(){
       let model = this.get('model');
-      model.pushObject({ratio: 1});
+      model.pushObject({ratio: 1, continuous: 1});
       this.set('model', model);
       return false;
     },
