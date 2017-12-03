@@ -15,7 +15,7 @@
 * k-t2: kizomba list track 2
 
 ## Example 1
-**Config: **
+**Config:**
 ```
 s-1-1, b-1-1, k-1-1, p-1-1
 ```
@@ -27,7 +27,7 @@ s-t2, b-t2, k-t2, p-t2,
 ```
 
 ## Example 2
-**Config: **
+**Config:**
 ```
 s-2-1, b-2-1, k-1-1, p-1-1
 ```
@@ -41,7 +41,7 @@ s-t4, b-t4, k-t2, p-t2,
 ```
 
 ## Example 3
-**Config: **
+**Config:**
 ```
 s-2-2, b-2-1, k-1-1, p-1-1
 ```
@@ -55,7 +55,7 @@ s-t7, s-t8, b-t4, k-t2, p-t2,
 ```
 
 ## Example 4
-**Config: **
+**Config:**
 ```
 s-2-2, b-2-1, k-1-2, p-1-1
 ```
