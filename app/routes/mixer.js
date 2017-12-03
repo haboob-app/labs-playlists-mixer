@@ -11,7 +11,7 @@ export default Ember.Route.extend({
   spotifyApi: new SpotifyWebApi(),
 
   model () {
-    return [{ratio: 1}, {ratio: 1}];
+    return [{ratio: 1, continuous: 1}, {ratio: 1, continuous: 1}];
   },
 
   setupController(controller, model) {

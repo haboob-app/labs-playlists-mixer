@@ -6,6 +6,7 @@ export default Ember.Service.extend({
   mergePlaylist: [],
   playlists: [],
   ratios: [],
+  continuousSongs: [],
   spotifyApi: null,
   session: Ember.inject.service('session'),
 
@@ -21,6 +22,7 @@ export default Ember.Service.extend({
     this.set('mergePlaylist', []);
     this.set('playlists', []);
     this.set('ratios', []);
+    this.set('continuousSongs', []);
   },
 
   createMixPlaylist(playListName, isPublic, shuffle) {
@@ -57,7 +59,7 @@ export default Ember.Service.extend({
   addTracksToPlaylist(userId, playListId, tracks) {
     let client = this.get('spotifyApi');
     return function() {
-      return client.addTracksToPlaylist(userId, playListId, tracks)
+      return client.addTracksToPlaylist(userId, playListId, tracks);
     };
   },
 
@@ -86,6 +88,7 @@ export default Ember.Service.extend({
   mix(shuffle) {
     let self = this;
     let ratios = this.get('ratios');
+    let continuousSongs = this.get('continuousSongs');
     let maxRatio = Math.max(...ratios);
     let normalizedRatios = ratios.map(item => Math.abs(item - maxRatio) + 1);
     let normalizedPlaylists = this.get('playlists').map(item => shuffle ? self.shuffle(item.get('songs')) : item.get('songs'));
@@ -96,7 +99,7 @@ export default Ember.Service.extend({
     do {
       emptyA = 0;
       for (var j = 0; j < normalizedPlaylists.length; j++) {
-        normalizedPlaylists[j] = this.getItem(normalizedPlaylists[j], normalizedRatios[j], ratioIndex);
+        normalizedPlaylists[j] = this.getItem(normalizedPlaylists[j], normalizedRatios[j], continuousSongs[j], ratioIndex);
         if (!normalizedPlaylists[j]) {
           emptyA++;
         }
@@ -125,13 +128,13 @@ export default Ember.Service.extend({
     return array;
   },
 
-  getItem(array, ratio, ratioIndex) {
+  getItem(array, ratio, continuousSongs, ratioIndex) {
     if (array && array.length > 0) {
       const [head, ...tail] = array;
 
-      if (head && ratio <= ratioIndex) {
+      if (head && ratio <= ratioIndex && continuousSongs > 0) {
         this.get('mergePlaylist').push(head);
-        return tail;
+        return this.getItem(tail, ratio, continuousSongs - 1, ratioIndex);
       }
       return array;
     }
@@ -139,9 +142,10 @@ export default Ember.Service.extend({
     return null;
   },
 
-  addPlaylist(playlist, ratio) {
+  addPlaylist(playlist, ratio, continuous) {
     let self = this;
     this.get('ratios').push(ratio);
+    this.get('continuousSongs').push(continuous);
     playlist.set('songs', Ember.A());
 
     return this.findAllPlayListTracks(playlist)

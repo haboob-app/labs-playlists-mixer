@@ -12,7 +12,7 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
     {{#each model as |item index|}}
-      {{playlist-setting index=index playlists=playlists selectedPlaylist=item.playlist ratio=item.ratio remove="remove" showRemove=(gt model.length 2) }}
+      {{playlist-setting index=index playlists=playlists selectedPlaylist=item.playlist ratio=item.ratio continuous=item.continuous remove="remove" showRemove=(gt model.length 2) }}
     {{/each}}
   </div>
 </div>

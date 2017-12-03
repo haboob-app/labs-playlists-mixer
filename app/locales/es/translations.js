@@ -22,7 +22,10 @@ export default {
     "playlist-placeholder": "Selecciona una lista",
     "ratio": "Proporción",
     "ratio-placeholder": "",
-    "ratio-help": ""
+    "ratio-help": "",
+    "continuous": "Continuas",
+    "continuous-placeholder": "",
+    "continuous-help": ""
   },
 
   "errors": {

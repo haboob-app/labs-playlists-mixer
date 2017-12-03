@@ -9,7 +9,7 @@
     </div>
     {{/if}}
   </div>
-  <div class="col-md-6 pull-md-1">
+  <div class="col-md-5 pull-md-1">
     <div class="form-group">
       <label>{{t "playlist-setting.playlist"}}</label>
       {{input class="hidden-xs-up invisible float-right" value=selectedPlaylist required="required"}}
@@ -27,11 +27,18 @@
       {{/power-select}}
     </div>
   </div>
-  <div class="col-md-5 pull-md-1">
+  <div class="col-md-3 pull-md-1">
     <div class="form-group">
       <label>{{t "playlist-setting.ratio"}}</label>
       {{input class="form-control" value=ratio placeholder=(t "playlist-setting.ratio-placeholder") required="required" min="1" max="5" aria-describedby="ratioHelp"}}
       <small id="ratioHelp" class="form-text text-muted">{{t "playlist-setting.ratio-help"}}</small>
+    </div>
+  </div>
+  <div class="col-md-3 pull-md-1">
+    <div class="form-group">
+      <label>{{t "playlist-setting.continuous"}}</label>
+      {{input class="form-control" value=continuous placeholder=(t "playlist-setting.continuous-placeholder") required="required" min="1" max="5" aria-describedby="continuousHelp"}}
+      <small id="continuousHelp" class="form-text text-muted">{{t "playlist-setting.continuous-help"}}</small>
     </div>
   </div>
 </div>

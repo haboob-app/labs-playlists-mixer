@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
 
       for (let i = 0; i < model.get('length'); i++) {
         let row = model.objectAt(i);
-        promises.push(mixer.addPlaylist(row.playlist, row.ratio));
+        promises.push(mixer.addPlaylist(row.playlist, row.ratio, row.continuous));
       }
 
       if (promises.length > 0) {

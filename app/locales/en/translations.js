@@ -22,7 +22,10 @@ export default {
     "playlist-placeholder": "Select a playlist",
     "ratio": "Ratio",
     "ratio-placeholder": "",
-    "ratio-help": ""
+    "ratio-help": "",
+    "continuous": "Continuous",
+    "continuous-placeholder": "",
+    "continuous-help": ""
   },
 
   "errors": {

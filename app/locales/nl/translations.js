@@ -22,7 +22,10 @@ export default {
     "playlist-placeholder": "Selecteer een afspeellijst",
     "ratio": "Verhouding",
     "ratio-placeholder": "",
-    "ratio-help": ""
+    "ratio-help": "",
+    "continuous": "Doorlopende",
+    "continuous-placeholder": "",
+    "continuous-help": ""
   },
 
   "errors": {
