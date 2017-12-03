@@ -8,7 +8,7 @@
 
 *Config*
 * s-4-2: salsa list with proportion 4 and continuous songs 2
-* k-2-1: salsa list with proportion 2 and continuous songs 1
+* k-2-1: kizomba list with proportion 2 and continuous songs 1
 
 *Result*
 * s-t1: salsa list track 1
