@@ -8,6 +8,21 @@ export default Ember.Controller.extend({
   mixer: Ember.inject.service('mixer'),
   rootUrl: ENV.routerRootURL,
 
+  promiseSerial(funcs) {
+    return funcs.reduce(function (promise, func) {
+      return promise.then(function (result) {
+        return func().then(Array.prototype.concat.bind(result));
+      });
+    }, Promise.resolve([]));
+  },
+
+  addPlaylist(playlist, ratio, continuous) {
+    let mixer = this.get('mixer');
+    return function() {
+      return mixer.addPlaylist(playlist, ratio, continuous);
+    };
+  },
+
   actions: {
     add(){
       let model = this.get('model');
@@ -38,11 +53,11 @@ export default Ember.Controller.extend({
 
       for (let i = 0; i < model.get('length'); i++) {
         let row = model.objectAt(i);
-        promises.push(mixer.addPlaylist(row.playlist, row.ratio, row.continuous));
+        promises.push(this.addPlaylist(row.playlist, row.ratio, row.continuous));
       }
 
       if (promises.length > 0) {
-        Promise.all(promises)
+        this.promiseSerial(promises)
         .then(function() {
           return mixer.createMixPlaylist(self.get('playlistName'), self.get('isPublic'), self.get('shuffle'));
         })
